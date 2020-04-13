@@ -11,6 +11,7 @@ public class BadGuyMovement : NetworkComponent
     public GameObject badGuy;
     public NavMeshAgent badGuyNav;
     public bool whichPos;
+    public string formattingV3 = "F4";
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +55,7 @@ public class BadGuyMovement : NetworkComponent
         {
             if (IsServer)
             {
-                SendUpdate("DUMMYPOS", this.transform.position.ToString());
+                SendUpdate("DUMMYPOS", this.transform.position.ToString(formattingV3));
             }
             yield return new WaitForSeconds(MyCore.MasterTimer);
         }

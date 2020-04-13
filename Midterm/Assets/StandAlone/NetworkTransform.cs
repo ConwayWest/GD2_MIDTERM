@@ -105,14 +105,14 @@ public class NetworkTransform : NetworkComponent
             if(LastPosition != rb.position)
             {
                 // SendUpdate
-                SendUpdate("POS", rb.position.ToString());
+                SendUpdate("POS", rb.position.ToString("F4"));
                 LastPosition = rb.position;
             }
             //Is the rotation different?
             if(LastRotation != rb.rotation.eulerAngles)
             {
                 // Send Update
-                SendUpdate("ROT", rb.rotation.eulerAngles.ToString());
+                SendUpdate("ROT", rb.rotation.eulerAngles.ToString("F4"));
                 LastRotation = rb.rotation.eulerAngles;
             }
             
@@ -120,7 +120,7 @@ public class NetworkTransform : NetworkComponent
             if(LastVelocity != rb.velocity)
             {
                 // Send Update
-                SendUpdate("VEL", rb.velocity.ToString());
+                SendUpdate("VEL", rb.velocity.ToString("F4"));
                 LastVelocity = rb.velocity;
             }
 
@@ -128,16 +128,16 @@ public class NetworkTransform : NetworkComponent
             if(LastRotVelocity != rb.angularVelocity)
             {
                 // Send Update
-                SendUpdate("ROTVEL", rb.angularVelocity.ToString());
+                SendUpdate("ROTVEL", rb.angularVelocity.ToString("F4"));
                 LastRotVelocity = rb.angularVelocity;
             }
 
             if(IsDirty)
             {
-                SendUpdate("POS", rb.position.ToString());
-                SendUpdate("ROT", rb.rotation.eulerAngles.ToString());
-                SendUpdate("VEL", rb.velocity.ToString());
-                SendUpdate("ROTVEL", rb.angularVelocity.ToString());
+                SendUpdate("POS", rb.position.ToString("F4"));
+                SendUpdate("ROT", rb.rotation.eulerAngles.ToString("F4"));
+                SendUpdate("VEL", rb.velocity.ToString("F4"));
+                SendUpdate("ROTVEL", rb.angularVelocity.ToString("F4"));
                 IsDirty = false;
             }
 
